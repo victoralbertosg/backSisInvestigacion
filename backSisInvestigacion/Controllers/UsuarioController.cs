@@ -1,7 +1,7 @@
 ﻿using backSisInvestigacion.Models;
 using backSisInvestigacion.Models.Request;
 using backSisInvestigacion.Models.Response;
-
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -13,6 +13,7 @@ namespace backSisInvestigacion.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class UsuarioController : ControllerBase
     {
         [HttpGet]
