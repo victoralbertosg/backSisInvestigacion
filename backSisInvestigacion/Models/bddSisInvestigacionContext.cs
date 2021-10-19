@@ -30,7 +30,7 @@ namespace backSisInvestigacion.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=JAV05JLINFVSOTO;DataBase=bddSisInvestigacion;Trusted_Connection=true;");
+                optionsBuilder.UseSqlServer("server=JAV05JLINFVSOTO;Database=bddSisInvestigacion;trusted_Connection=True;");
             }
         }
 
@@ -44,9 +44,7 @@ namespace backSisInvestigacion.Models
 
                 entity.ToTable("especialidad");
 
-                entity.Property(e => e.Idespecialidad)
-                    .ValueGeneratedNever()
-                    .HasColumnName("idespecialidad");
+                entity.Property(e => e.Idespecialidad).HasColumnName("idespecialidad");
 
                 entity.Property(e => e.Descripcion)
                     .IsRequired()
@@ -69,9 +67,7 @@ namespace backSisInvestigacion.Models
 
                 entity.ToTable("facultad");
 
-                entity.Property(e => e.Idfacultad)
-                    .ValueGeneratedNever()
-                    .HasColumnName("idfacultad");
+                entity.Property(e => e.Idfacultad).HasColumnName("idfacultad");
 
                 entity.Property(e => e.Descripcion)
                     .HasMaxLength(50)
