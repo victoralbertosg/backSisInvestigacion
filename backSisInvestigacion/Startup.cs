@@ -1,10 +1,12 @@
 
 using backSisInvestigacion.Common;
+using backSisInvestigacion.Models;
 using backSisInvestigacion.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -51,6 +53,11 @@ namespace backSisInvestigacion
 
 
             services.AddControllers();
+            services.AddDbContext<bddSisInvestigacionContext>();
+            /*options =>
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("bddSisInvestigaciont"));
+            }*/
 
             var appSettingsSection = Configuration.GetSection("AppSettings");
             services.Configure<AppSettings>(appSettingsSection);
@@ -75,10 +82,11 @@ namespace backSisInvestigacion
                     };
                 });
 
-            
 
+            
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IFacultadService, FacultadService>();
+            services.AddScoped<IProyectoService, ProyectoService>();
 
             services.AddSwaggerGen(c =>
             {

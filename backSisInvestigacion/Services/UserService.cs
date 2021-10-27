@@ -34,7 +34,7 @@ namespace backSisInvestigacion.Services
             if (usuario == null) return null;
                 userresponse.idusuario = usuario.Idusuario;
                 userresponse.Token = GetToken(usuario);
-
+                userresponse.rol = usuario.Rol;
         }
         return userresponse;    
         }
@@ -58,7 +58,6 @@ namespace backSisInvestigacion.Services
             };
             var token = tokenHanler.CreateToken(tokenDescriptor);
             return tokenHanler.WriteToken(token);
-
         }
 }
 }

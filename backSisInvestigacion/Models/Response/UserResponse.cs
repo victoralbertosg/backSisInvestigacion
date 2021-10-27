@@ -9,5 +9,6 @@ namespace backSisInvestigacion.Models.Response
     {
         public long idusuario { get; set; }
         public string Token { get; set; }
+        public int rol { get; set; }
     }
 }
