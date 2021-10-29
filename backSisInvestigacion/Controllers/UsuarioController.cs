@@ -53,7 +53,7 @@ namespace backSisInvestigacion.Controllers
             }
             return Ok(oResponse);
         }
-        [HttpGet("/usuario/{rol}")]
+        [HttpGet("{rol}")]
         public IActionResult GetbyRol(long rol)
         {
             Response oResponse = new Response();
