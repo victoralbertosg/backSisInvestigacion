@@ -87,6 +87,8 @@ namespace backSisInvestigacion
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IFacultadService, FacultadService>();
             services.AddScoped<IProyectoService, ProyectoService>();
+            services.AddScoped<IRegInvService, RegInvService>();
+
 
             services.AddSwaggerGen(c =>
             {
