@@ -18,12 +18,12 @@ namespace backSisInvestigacion.Services
                     try
                     {
                         RegistroInvestigacion regInv = new RegistroInvestigacion();
+                        regInv.IdregInv = model.IdregInv;
                         regInv.IdtrabInvestigacion = model.IdtrabInvestigacion;
-                        regInv.Idetapainv = model.Idetapainv;
+                        
                         regInv.Etapa = model.Etapa;
                         regInv.Idusuario = model.Idusuario;
-                        regInv.Fecha = model.Fecha;
-                        regInv.IdtipoInv = model.IdtipoInv;
+                        regInv.Fecha = model.Fecha;                        
                         regInv.Observaciones = model.Observaciones;
                         db.RegistroInvestigacions.Add(regInv);
                         db.SaveChanges();

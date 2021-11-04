@@ -105,21 +105,17 @@ namespace backSisInvestigacion.Models
 
             modelBuilder.Entity<RegistroInvestigacion>(entity =>
             {
-                entity.HasKey(e => e.Idetapainv);
+                entity.HasKey(e => e.IdregInv);
 
                 entity.ToTable("registro_investigacion");
 
-                entity.Property(e => e.Idetapainv)
-                    .ValueGeneratedNever()
-                    .HasColumnName("idetapainv");
+                entity.Property(e => e.IdregInv).HasColumnName("idreg_inv");
 
                 entity.Property(e => e.Etapa).HasColumnName("etapa");
 
                 entity.Property(e => e.Fecha)
                     .HasColumnType("datetime")
-                    .HasColumnName("fecha");
-
-                entity.Property(e => e.IdtipoInv).HasColumnName("idtipo_inv");
+                    .HasColumnName("fecha");              
 
                 entity.Property(e => e.IdtrabInvestigacion).HasColumnName("idtrab_investigacion");
 

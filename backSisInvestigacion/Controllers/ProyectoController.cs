@@ -24,10 +24,32 @@ namespace backSisInvestigacion.Controllers
         }
 
 
-        [HttpGet ("{id}")]
+        [HttpGet]
+        public IActionResult getAll()
+        {
+            var lst = proyecto.getAll();
+
+            oResponse.Exito = 1;
+            oResponse.Data = lst;
+
+            return Ok(this.oResponse);
+        }
+
+        [HttpGet("/api/proyecto/user/{id}")]
         public IActionResult getAll(int id)
         {
-            var lst = proyecto.getAll(id);
+            var lst = proyecto.getAllByUser(id);
+
+            oResponse.Exito = 1;
+            oResponse.Data = lst;
+
+            return Ok(this.oResponse);
+        }
+
+        [HttpGet("/api/proyecto/asesor/{id}")]
+        public IActionResult getAllByAsesor(int id)
+        {
+            var lst = proyecto.getAllByAsesor(id);
 
             oResponse.Exito = 1;
             oResponse.Data = lst;
