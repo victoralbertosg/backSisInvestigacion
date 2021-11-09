@@ -46,6 +46,16 @@ namespace backSisInvestigacion.Controllers
             return Ok(this.oResponse);
         }
 
+        [HttpGet("/api/proyecto/trabinv/{id}")]
+        public IActionResult getByTrabInv(int id)
+        {
+            var lst = proyecto.getByTrabInv(id);
+            oResponse.Exito = 1;
+            oResponse.Data = lst;
+            return Ok(this.oResponse);
+        }
+
+
         [HttpGet("/api/proyecto/asesor/{id}")]
         public IActionResult getAllByAsesor(int id)
         {

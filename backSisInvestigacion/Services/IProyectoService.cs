@@ -18,6 +18,7 @@ namespace backSisInvestigacion.Services
         public void add(TrabInvestigacionRequest proyectoRequest);
         public void edit(TrabInvestigacionRequest proyectoRequest);
 
+        object getByTrabInv(int trabinv);
 
 
 

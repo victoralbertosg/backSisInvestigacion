@@ -127,7 +127,12 @@ namespace backSisInvestigacion.Services
             }
         }
 
-     
-        
+        object IProyectoService.getByTrabInv(int trabinv)
+        {
+            var lst = from inv in bd.TrabInvestigacions                      
+                      where inv.IdtrabInvestigacion == trabinv
+                      select inv;
+            return lst;
+        }
     }
 }
