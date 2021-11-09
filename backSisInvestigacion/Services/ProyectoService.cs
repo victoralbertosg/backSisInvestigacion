@@ -97,5 +97,37 @@ namespace backSisInvestigacion.Services
             }
         }
 
+        public void edit(TrabInvestigacionRequest proyectoRequest)
+        {
+            using (bddSisInvestigacionContext db1 = new bddSisInvestigacionContext())
+            {
+                using (var transaction = db1.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        TrabInvestigacion oproyecto = db1.TrabInvestigacions.Find(proyectoRequest.IdtrabInvestigacion);
+                        oproyecto.IdtrabInvestigacion = proyectoRequest.IdtrabInvestigacion;
+                        oproyecto.Titulo = proyectoRequest.Titulo;
+                        oproyecto.Idusuario = proyectoRequest.Idusuario;
+                        oproyecto.Idasesor = proyectoRequest.Idasesor;
+                        oproyecto.Etapa = proyectoRequest.Etapa;
+                        oproyecto.Fecha = proyectoRequest.Fecha;
+                        oproyecto.IdtipoInv = proyectoRequest.IdtipoInv;
+                        oproyecto.UrlInv = proyectoRequest.UrlInv;
+                        db1.Entry(oproyecto).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                        db1.SaveChanges();
+                        transaction.Commit();
+                    }
+                    catch (Exception ex)
+                    {
+
+                        transaction.Rollback();
+                    }
+                }
+            }
+        }
+
+     
+        
     }
 }

@@ -71,12 +71,25 @@ namespace backSisInvestigacion.Controllers
             {
                 respuesta.Mensaje = ex.Message;
             }
-            return Ok(respuesta);         
-
-
+            return Ok(respuesta);        
 
         }
+        [HttpPut]
+        public IActionResult edit(TrabInvestigacionRequest oproyecto)
+        {
+            Response respuesta = new Response();
+            try
+            {
+                proyecto.edit(oproyecto);
+                respuesta.Exito = 1;
+            }
+            catch (Exception ex)
+            {
+                respuesta.Mensaje = ex.Message;
+            }
+            return Ok(respuesta);
 
+        }
 
     }
 }

@@ -16,6 +16,8 @@ namespace backSisInvestigacion.Services
         public object getAllByAsesor(int user);
         public object getAll();
         public void add(TrabInvestigacionRequest proyectoRequest);
+        public void edit(TrabInvestigacionRequest proyectoRequest);
+
 
 
 
