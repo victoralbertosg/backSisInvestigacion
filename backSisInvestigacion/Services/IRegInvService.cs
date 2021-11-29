@@ -11,5 +11,7 @@ namespace backSisInvestigacion.Services
        // public object getAll(int user);
         public void add(RegInvRequest model);
 
+        public object getByIdreg (int id);
+
     }
 }

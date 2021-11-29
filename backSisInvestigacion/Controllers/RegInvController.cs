@@ -15,6 +15,7 @@ namespace backSisInvestigacion.Controllers
     public class RegInvController : ControllerBase
     {
         private IRegInvService reginv;
+        public Response oResponse = new Response();
 
         public RegInvController(IRegInvService reginv)
         {
@@ -38,6 +39,19 @@ namespace backSisInvestigacion.Controllers
                 respuesta.Mensaje = ex.Message;
             }
             return Ok(respuesta);
+        }
+
+
+
+        [HttpGet("/api/reginv/{id}")]
+        public IActionResult getAllByIdinv(int id)
+        {
+            var lst = reginv.getByIdreg(id);
+
+            oResponse.Exito = 1;
+            oResponse.Data = lst;
+
+            return Ok(this.oResponse);
         }
     }
 }

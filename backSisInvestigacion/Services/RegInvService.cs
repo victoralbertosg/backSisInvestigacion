@@ -9,6 +9,14 @@ namespace backSisInvestigacion.Services
 {
     public class RegInvService : IRegInvService
     {
+
+        public bddSisInvestigacionContext bd;
+
+        public RegInvService(bddSisInvestigacionContext bd)
+        {
+            this.bd = bd;
+        }
+
         public void add(RegInvRequest model)
         {
             using (bddSisInvestigacionContext db = new bddSisInvestigacionContext())
@@ -38,6 +46,14 @@ namespace backSisInvestigacion.Services
                 }
             }
 
+        }
+
+        object IRegInvService.getByIdreg(int id)
+        {
+            var lst = from reginv in bd.RegistroInvestigacions
+                      where reginv.IdtrabInvestigacion == id
+                      select reginv;
+            return lst;
         }
     }
 }

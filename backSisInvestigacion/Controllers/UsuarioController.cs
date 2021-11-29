@@ -14,7 +14,7 @@ namespace backSisInvestigacion.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    //[Authorize]
     public class UsuarioController : ControllerBase
     {
         bddSisInvestigacionContext db1;
