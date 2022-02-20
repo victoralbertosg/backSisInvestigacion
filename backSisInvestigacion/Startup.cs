@@ -46,8 +46,7 @@ namespace backSisInvestigacion
                                   {
                                      builder.WithHeaders("*"); 
                                      builder.WithOrigins("*");
-                                     builder.WithMethods("*");
-
+                                     builder.WithMethods("*");                                     
                                   });
             });
 
@@ -97,11 +96,10 @@ namespace backSisInvestigacion
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        /*public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
-            {
-                
+            {                
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "backSisInvestigacion v1"));
@@ -116,6 +114,58 @@ namespace backSisInvestigacion
             {
                 endpoints.MapControllers();
             });
+        }*/
+
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        {
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+
+            if (env.IsProduction() || env.IsStaging())
+            {
+                //app.UseExceptionHandler("/Error/index.html");
+            }
+            // Enable middleware to serve generated Swagger as a JSON endpoint.
+            app.UseSwagger(c =>
+            {
+                c.RouteTemplate = "swagger/{documentName}/swagger.json";
+            });
+
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
+            // specifying the Swagger JSON endpoint.
+            app.UseSwaggerUI(c =>
+            {
+                c.RoutePrefix = "swagger";
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1");
+                // custom CSS
+                c.InjectStylesheet("/swagger-ui/custom.css");
+            });
+
+            app.Use(async (ctx, next) =>
+            {
+                await next();
+                if (ctx.Response.StatusCode == 204)
+                {
+                    ctx.Response.ContentLength = 0;
+                }
+            });
+            app.UseHttpsRedirection();
+            app.UseRouting();
+            app.UseCors(MiCors);
+            app.UseAuthorization();
+            app.UseAuthentication();
+
+          
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
+           
         }
+
+
+
     }
 }

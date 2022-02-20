@@ -4,7 +4,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 -->
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <_PublishTargetUrl>D:\releaseWin</_PublishTargetUrl>
-    <History>True|2021-11-28T03:14:35.8110120Z;True|2021-11-27T11:10:44.2157588-05:00;True|2021-11-27T10:16:25.4430162-05:00;</History>
+    <_PublishTargetUrl>C:\inetpub\demoApi</_PublishTargetUrl>
+    <History>True|2022-02-19T07:51:38.5994043Z;False|2022-02-18T23:50:49.0447770-08:00;True|2022-02-18T23:30:22.0722283-08:00;False|2022-02-18T23:29:32.2405931-08:00;True|2022-02-18T23:27:45.2330060-08:00;False|2022-02-18T23:26:46.1656790-08:00;True|2022-02-18T23:21:19.2809209-08:00;True|2022-02-18T23:18:20.1394025-08:00;True|2022-02-18T23:16:37.3124186-08:00;True|2022-02-18T23:12:39.0052205-08:00;True|2022-02-18T22:39:55.5717647-08:00;True|2022-02-18T22:34:32.5669241-08:00;</History>
   </PropertyGroup>
 </Project>
